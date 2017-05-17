@@ -11,7 +11,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // 'mychat.controllers' is found in controllers.js
 angular.module('mychat', ['ionic', 'firebase', 'angularMoment', 'mychat.controllers', 'mychat.services', 'ionic.cloud', 'config'])
 
-.run(function ($ionicPlatform, $rootScope, $location, Auth, $ionicLoading, hockeyConfig) {
+.run(function ($ionicPlatform, $rootScope, $location, Auth, $ionicLoading, hockeyConfig, apiaiConfig) {
     $ionicPlatform.ready(function () {
 
 		
@@ -29,10 +29,7 @@ angular.module('mychat', ['ionic', 'firebase', 'angularMoment', 'mychat.controll
             StatusBar.styleDefault();
         }
 		ApiAIPlugin.init(
-        {
-            clientAccessToken: "d53040912f5e48048e0b6e7166f6b924", // insert your client access key here
-            lang: "en" // set lang tag from list of supported languages
-        }, 
+        apiaiConfig, 
         function(result) { console.log(result); },
         function(error) { console.log(error); }
 		);
